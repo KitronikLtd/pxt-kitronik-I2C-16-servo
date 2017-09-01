@@ -126,7 +126,7 @@ namespace kitronik {
 	
     export function servoWrite(Servo: Servos, degrees: number): void {
         if (initalised == false) {
-            SecretIncantation()
+            secretIncantation()
         }
         let buf = pins.createBuffer(2)
         let HighByte = false
