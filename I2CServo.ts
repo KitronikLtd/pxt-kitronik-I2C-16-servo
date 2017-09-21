@@ -11,7 +11,7 @@ namespace kitronik {
     let PrescaleReg = 0xFE //the prescale register address
     let Mode1Reg = 0x00  //The mode 1 register address
     
-// If you wanted to write soem code that stepped through the servos then this is the BASe and size to do that 	
+// If you wanted to write some code that stepped through the servos then this is the BASe and size to do that 	
 	let Servo1RegBase = 0x08 
     let ServoRegDistance = 4
 	//To get the PWM pulses to the correct size and zero offset these are the default numbers. 
@@ -40,6 +40,10 @@ namespace kitronik {
         Servo16 = 0x44,
     }
 
+	export enum BoardAddresses{
+		Board1 = 0x6A,
+		
+	}
     //Trim the servo pulses. These are here for advanced users, and not exposed to blocks.
     //It appears that servos I've tested are actually expecting 0.5 - 2.5mS pulses, 
     //not the widely reported 1-2mS 
@@ -121,7 +125,7 @@ namespace kitronik {
      */
     //% subcategory=I2CServoDriver
     //% blockId=kitronik_I2Cservo_write
-    //% block="servo%Servo|to%degrees"
+    //% block="set%Servo|to%degrees"
 	//% degrees.min=0 degrees.max=180
 	
     export function servoWrite(Servo: Servos, degrees: number): void {

@@ -13,7 +13,7 @@ Blocks that support [Kitronik I2C Servo driver board for the micro:bit](https://
 Servos.Servo1 through to Servos.Servo16
 
 ```
-* set servo output 1 to 90 degrees
+* set servo output 1 to 90 degrees when button A pressed
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
