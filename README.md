@@ -3,7 +3,7 @@
 BETA - Blocks for driving the Kitronik I2C 16 servo expansion board
 
 
-Blocks that support [Kitronik I2C Servo driver board for the micro:bit](https://www.kitronik.co.uk/5612.html)
+Blocks that support [Kitronik I2C Servo driver board for the micro:bit](https://www.kitronik.co.uk/5612)
 
 ## I2C-16-servo 
 
