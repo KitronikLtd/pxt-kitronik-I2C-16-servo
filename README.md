@@ -27,3 +27,11 @@ input.onButtonPressed(Button.A, () => {
 MIT
 
 ## Supported targets
+
+* for PXT/microbit
+(The metadata above is needed for package search.)
+
+
+```package
+pxt-kitronik-I2C-16-servo=github:KitronikLtd/pxt-kitronik-I2C-16-servo
+```
