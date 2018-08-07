@@ -1,10 +1,8 @@
-namespace kitronik {
-
-	
 /**
- * Custom blocks
+ * Blocks for driving the Kitronik I2C 16-Servo Driver Board
  */
-//% weight=100 color=#0fbc11 icon=""
+//% weight=100 color=#00A654 icon="\uf085" block="I2C 16-Servo"
+namespace kitronik_i2c_16_servo {
 
 //Some useful parameters. 
     let ChipAddress = 0x6A //default Kitronik Chip address
@@ -123,7 +121,6 @@ namespace kitronik {
      * @param Servo Which servo to set
 	 * @param degrees the angle to set the servo to
      */
-    //% subcategory=I2CServoDriver
     //% blockId=kitronik_I2Cservo_write
     //% block="set%Servo|to%degrees"
 	//% degrees.min=0 degrees.max=180

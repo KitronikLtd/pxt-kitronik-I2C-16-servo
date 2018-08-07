@@ -17,7 +17,7 @@ Servos.Servo1 through to Servos.Servo16
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
-    Kitronik.servoWrite(Servos.Servo1, 90);
+    kitronik_i2c_16_servo.servoWrite(Servos.Servo1, 90);
 })
 ```
 
