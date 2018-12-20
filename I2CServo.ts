@@ -49,7 +49,7 @@ namespace kitronik_i2c_16_servo {
     // a better trim function that does the maths for the end user could be exposed, the basics are here 
 	// for reference
 
-    function TrimServoMultiplier(Value: number) {
+    export function TrimServoMultiplier(Value: number) {
         if (Value < 113) {
             ServoMultiplier = 113
         }
@@ -63,7 +63,7 @@ namespace kitronik_i2c_16_servo {
 
         }
     }
-    function TrimServoZeroOffset(Value: number) {
+    export function TrimServoZeroOffset(Value: number) {
         if (Value < 0x66) {
             ServoZeroOffset = 0x66
         }
@@ -134,6 +134,7 @@ namespace kitronik_i2c_16_servo {
         let deg100 = degrees * 100
         let PWMVal100 = deg100 * ServoMultiplier
         let PWMVal = PWMVal100 / 10000
+        PWMVal = Math.floor(PWMVal)
         PWMVal = PWMVal + ServoZeroOffset
         if (PWMVal > 0xFF) {
             HighByte = true
