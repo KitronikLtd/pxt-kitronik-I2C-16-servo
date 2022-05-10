@@ -4,10 +4,11 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "pxt-kitronik-i2c-16-servo": "github:pelikhan/pxt-kitronik-i2c-16-servo"
+        "pxt-kitronik-i2c-16-servo": "github:pelikhan/pxt-kitronik-i2c-16-servo",
+        "jacdac": "github:microsoft/pxt-jacdac#v0.10.29",
+        "jacdac-servo": "github:microsoft/pxt-jacdac/servo#v0.10.29"
     },
     "files": [
-        "main.blocks",
         "main.ts",
         "README.md"
     ],
@@ -21,5 +22,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
