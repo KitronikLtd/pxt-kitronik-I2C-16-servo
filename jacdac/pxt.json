@@ -1,5 +1,6 @@
 {
     "name": "kitronik-i2c-16-servo-jacdac",
+    "version": "0.9.3",
     "dependencies": {
         "core": "*",
         "radio": "*",
