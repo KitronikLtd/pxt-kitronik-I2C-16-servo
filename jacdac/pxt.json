@@ -6,8 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "pxt-kitronik-i2c-16-servo": "github:pelikhan/pxt-kitronik-i2c-16-servo",
-        "jacdac": "github:microsoft/pxt-jacdac#v0.10.29",
-        "jacdac-servo": "github:microsoft/pxt-jacdac/servo#v0.10.29"
+        "jacdac": "github:microsoft/pxt-jacdac#v0.10.31",
+        "jacdac-servo": "github:microsoft/pxt-jacdac/servo#v0.10.31"
     },
     "files": [
         "main.ts",
@@ -17,7 +17,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.1.32",
+        "target": "4.1.34",
         "targetId": "microbit"
     },
     "supportedTargets": [
