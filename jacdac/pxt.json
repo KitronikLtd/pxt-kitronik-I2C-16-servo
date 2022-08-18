@@ -1,0 +1,27 @@
+{
+    "name": "kitronik-i2c-16-servo-jacdac",
+    "version": "0.9.5",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "pxt-kitronik-i2c-16-servo": "github:KitronikLtd/pxt-kitronik-i2c-16-servo",
+        "jacdac": "github:microsoft/pxt-jacdac#v0.10.53",
+        "jacdac-servo": "github:microsoft/pxt-jacdac/servo#v0.10.53"
+    },
+    "files": [
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "4.1.45",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
