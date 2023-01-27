@@ -7,6 +7,7 @@ namespace kitronik_i2c_16_servo {
 //Some useful parameters. 
     let ChipAddress = 0x6A //default Kitronik Chip address
     let PrescaleReg = 0xFE //the prescale register address
+    let PrescaleVal = 0x85 // 50Hz
     let Mode1Reg = 0x00  //The mode 1 register address
     
 // If you wanted to write some code that stepped through the servos then this is the BASe and size to do that 	
@@ -85,13 +86,17 @@ namespace kitronik_i2c_16_servo {
 	*/
 	function secretIncantation(): void {
         let buf = pins.createBuffer(2)
+        let reset = pins.createBuffer(1)
 
-        //Should probably do a soft reset of the I2C chip here when I figure out how
+        // Soft reset of the I2C chip
+        reset[0] = 0x06
+        pins.i2cWriteBuffer(0x00, reset, false)
 
         // First set the prescaler to 50 hz
         buf[0] = PrescaleReg
-        buf[1] = 0x85
+        buf[1] = PrescaleVal
         pins.i2cWriteBuffer(ChipAddress, buf, false)
+
         //Block write via the all leds register to set all of them to 90 degrees
         buf[0] = 0xFA
         buf[1] = 0x00
@@ -105,10 +110,12 @@ namespace kitronik_i2c_16_servo {
         buf[0] = 0xFD
         buf[1] = 0x00
         pins.i2cWriteBuffer(ChipAddress, buf, false)
-        //Set the mode 1 register to come out of sleep
+
+        // Set the mode 1 register to come out of sleep
         buf[0] = Mode1Reg
         buf[1] = 0x01
         pins.i2cWriteBuffer(ChipAddress, buf, false)
+
         //set the initalised flag so we dont come in here again automatically
         initalised = true
     }
@@ -153,5 +160,20 @@ namespace kitronik_i2c_16_servo {
         pins.i2cWriteBuffer(ChipAddress, buf, false)
     }
 	    
-
+    /**
+     * Adjusts the servos.
+     * This block should be used if the connected servo does not respond correctly to the 'set angle' command.
+     * Try changing the value by small amounts and testing the servo until it correctly sets to the angle.
+     * @param change , eg: -13
+     */
+    //% subcategory=Settings
+    //% group=Settings
+    //% blockId=kitronik_adjust_servos
+    //% block="adjust servos by |%change|"
+    //% weight=50 blockGap=8
+    //% change.min=-25 change.max=25
+    export function adjustServos(change: number): void {
+        PrescaleVal = 0x85 + change
+        secretIncantation()
+    }
 }
