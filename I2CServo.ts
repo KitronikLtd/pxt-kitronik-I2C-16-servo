@@ -97,7 +97,7 @@ namespace kitronik_i2c_16_servo {
         buf[1] = PrescaleVal
         pins.i2cWriteBuffer(ChipAddress, buf, false)
 
-        //Block write via the all leds register to set all of them to 90 degrees
+        // Block write via the all leds register to set all of them to 0 degrees
         buf[0] = 0xFA
         buf[1] = 0x00
         pins.i2cWriteBuffer(ChipAddress, buf, false)
