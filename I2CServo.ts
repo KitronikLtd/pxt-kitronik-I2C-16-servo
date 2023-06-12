@@ -121,9 +121,9 @@ namespace kitronik_i2c_16_servo {
     }
 	
 	
-/**
-     * sets the requested servo to the reguested angle.
-	 * if the PCA has not yet been initialised calls the initialisation routine
+    /**
+     * Sets the requested servo to the reguested angle.
+	 * If the PCA has not yet been initialised calls the initialisation routine.
 	 *
      * @param Servo Which servo to set
 	 * @param degrees the angle to set the servo to
@@ -131,7 +131,6 @@ namespace kitronik_i2c_16_servo {
     //% blockId=kitronik_I2Cservo_write
     //% block="set%Servo|to%degrees"
 	//% degrees.min=0 degrees.max=180
-	
     export function servoWrite(Servo: Servos, degrees: number): void {
         if (initalised == false) {
             secretIncantation()
@@ -159,7 +158,28 @@ namespace kitronik_i2c_16_servo {
         }
         pins.i2cWriteBuffer(ChipAddress, buf, false)
     }
-	    
+    
+    /**
+     * Turns off the requested servo.
+	 * If the PCA has not yet been initialised calls the initialisation routine.
+	 *
+     * @param Servo Which servo to turn off
+     */
+    //% blockId=kitronik_I2Cservo_off
+    //% block="turn off %Servo"
+    export function servoOff(Servo: Servos): void {
+        if (initalised == false) {
+            secretIncantation();
+        }
+        let buf = pins.createBuffer(2);
+        buf[0] = Servo;
+        buf[1] = 0x00;
+        pins.i2cWriteBuffer(ChipAddress, buf, false);
+        buf[0] = Servo + 1;
+        buf[1] = 0x00;
+        pins.i2cWriteBuffer(ChipAddress, buf, false);
+    }
+    
     /**
      * Adjusts the servos.
      * This block should be used if the connected servo does not respond correctly to the 'set angle' command.
