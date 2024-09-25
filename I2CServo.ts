@@ -7,7 +7,7 @@ namespace kitronik_i2c_16_servo {
 //Some useful parameters. 
     let ChipAddress = 0x6A //default Kitronik Chip address
     let PrescaleReg = 0xFE //the prescale register address
-    let PrescaleVal = 0x85 // 50Hz
+    let PrescaleVal = 0x7D // 50Hz 
     let Mode1Reg = 0x00  //The mode 1 register address
     
 // If you wanted to write some code that stepped through the servos then this is the BASe and size to do that 	
@@ -193,7 +193,7 @@ namespace kitronik_i2c_16_servo {
     //% weight=50 blockGap=8
     //% change.min=-25 change.max=25
     export function adjustServos(change: number): void {
-        PrescaleVal = 0x85 + change
+        PrescaleVal = 0x7D + change
         secretIncantation()
     }
 }
